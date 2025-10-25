@@ -1,0 +1,13 @@
+{
+    "hotkeys": [
+        {
+            "keys": [
+                "alt_l",
+                "g"
+            ],
+            "description": "Alt + G"
+        }
+    ],
+    "debounce_time": 0.5,
+    "input_delay": 0.01
+}
