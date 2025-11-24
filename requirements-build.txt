@@ -1,0 +1,8 @@
+# 运行时依赖
+pynput==1.7.6
+pyperclip==1.8.2
+customtkinter==5.2.1
+
+# 打包依赖
+pyinstaller>=6.0.0
+
