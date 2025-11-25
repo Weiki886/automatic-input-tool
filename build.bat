@@ -69,6 +69,8 @@ if exist "发布包" (
 )
 mkdir "发布包"
 copy "dist\自动输入工具.exe" "发布包\"
+copy "logo.ico" "发布包\" 2>nul
+copy "logo.png" "发布包\" 2>nul
 copy "README.md" "发布包\" 2>nul
 copy "LICENSE" "发布包\" 2>nul
 
