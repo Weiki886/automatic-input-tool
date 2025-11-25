@@ -9,7 +9,7 @@ a = Analysis(
     datas=[
         ('config.json', '.'),
         ('logo.ico', '.'),
-        ('logo.jpg', '.'),
+        ('logo.png', '.'),
     ],
     hiddenimports=[
         'pynput',

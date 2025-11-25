@@ -15,6 +15,8 @@
 
 ## 安装依赖
 
+### 运行时依赖（开发 / 使用程序）
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -23,6 +25,18 @@ pip install -r requirements.txt
 - `pynput` - 键盘监听和控制
 - `pyperclip` - 剪贴板操作
 - `customtkinter` - 现代化GUI框架
+
+### 运行 + 打包依赖（构建可执行文件）
+
+如果你需要在本机打包生成 exe，可安装包含打包工具的依赖列表：
+
+```bash
+pip install -r requirements-build.txt
+```
+
+其中在 `requirements.txt` 的基础上额外包含：
+
+- `pyinstaller` - 打包为独立可执行文件
 
 ## 使用方法
 
@@ -333,12 +347,20 @@ python main_gui.py
 
 ```
 automatic-input-tool/
-├── main_gui.py           # 主程序（GUI界面）
-├── config_manager.py     # 配置管理器
-├── config.json          # 配置文件（自动生成）
-├── requirements.txt     # 依赖包列表
-└── README.md           # 项目说明文档
+├── main_gui.py              # 主程序（GUI界面）
+├── config_manager.py        # 配置管理器
+├── config.json              # 配置文件（运行时自动生成）
+├── requirements.txt         # 运行时依赖
+├── requirements-build.txt   # 运行 + 打包依赖（包含 pyinstaller）
+├── build.spec               # PyInstaller 配置
+├── build.bat                # 一键打包脚本
+├── 打包说明.md              # 打包流程说明
+├── build/                   # 打包中间文件（构建产物）
+├── dist/                    # 打包输出目录（构建产物）
+└── 发布包/                  # 发布用文件夹（构建产物）
 ```
+
+> 提示：`build/`、`dist/`、`发布包/` 都是打包生成的构建产物，通常不需要提交到版本库，可在 `.gitignore` 中忽略。
 
 ## 更新日志
 
@@ -359,15 +381,6 @@ automatic-input-tool/
 - 修复了多行文本换行不显示的问题
 - 完善了快捷键录制和删除功能
 
-## 开发计划
-
-- [ ] 支持更多的输入模式（如按行输入、按词输入）
-- [ ] 添加输入历史记录功能
-- [ ] 支持输入模板和常用文本保存
-- [ ] 添加全局快捷键（无需启动监听）
-- [ ] 支持更多语言的输入优化
-- [ ] 添加输入进度条和可视化反馈
-
 ## 许可证
 
 本项目仅供学习和个人使用。
@@ -377,27 +390,3 @@ automatic-input-tool/
 欢迎提交 Issue 和 Pull Request！
 
 如有任何问题或建议，请通过 Issue 反馈。
-
-## 常见问题 (FAQ)
-
-**Q: 为什么输入速度这么慢？**  
-A: 为了确保输入准确性，特别是处理中英文混合时。您可以在设置中调整输入延迟来改变速度。
-
-**Q: 可以在游戏中使用吗？**  
-A: 部分游戏可能会检测键盘模拟输入并禁止使用，请遵守游戏规则。
-
-**Q: 支持哪些操作系统？**  
-A: 支持 Windows、macOS 和 Linux，但某些功能可能因系统限制而有所不同。
-
-**Q: 输入的内容不完整怎么办？**  
-A: 尝试增加输入延迟，或检查目标应用是否对输入速度有限制。
-
-**Q: 可以同时使用多个快捷键吗？**  
-A: 可以！在设置中添加多个快捷键，它们都可以触发自动输入。
-
-**Q: 配置文件在哪里？**  
-A: 配置文件 `config.json` 位于程序根目录，可以手动编辑或通过GUI修改。
-
----
-
-**享受自动输入的便利！**
